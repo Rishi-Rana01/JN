@@ -2,6 +2,9 @@
 
 A sophisticated, editorial-style landing page for **JG University**, meticulously crafted to embody excellence in education and innovation. This project represents a transition from a tech-centric aesthetic to a timeless, premium institutional design.
 
+**🌐 Live Demo: [https://jg-university-azure.vercel.app/](https://jg-university-azure.vercel.app/)**
+
+
 ---
 
 ## 🤝 Human-AI Collaboration
@@ -59,9 +62,14 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## ☁️ Deployment on Vercel
+## ☁️ Deployment
 
+The project is currently deployed and live at:
+**[https://jg-university-azure.vercel.app/](https://jg-university-azure.vercel.app/)**
+
+### Deployment on Vercel
 Deploying this project is straightforward. Follow these steps:
+
 
 ### Method 1: Vercel Dashboard (Recommended)
 1.  **Push your code** to a GitHub/GitLab/Bitbucket repository.
