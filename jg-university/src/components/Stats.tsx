@@ -11,26 +11,25 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-slate-900 border-y border-white/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-blue-900/20 via-slate-900 to-slate-900"></div>
+    <section className="py-24 bg-muted border-y border-border relative overflow-hidden">
       <div className="container relative z-10 mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-border border border-border bg-card">
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="flex flex-col items-center"
+              transition={{ delay: idx * 0.1, duration: 0.6, ease: "easeOut" }}
+              className="flex flex-col items-center justify-center p-8 md:p-12"
             >
-              <div className="flex items-baseline mb-2">
-                <span className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-linear-to-br from-white to-slate-400">
+              <div className="flex items-baseline mb-3">
+                <span className="text-5xl md:text-7xl font-serif text-foreground">
                   {stat.value}
                 </span>
-                <span className="text-2xl md:text-4xl font-bold text-blue-500">{stat.suffix}</span>
+                <span className="text-3xl md:text-5xl font-serif text-accent">{stat.suffix}</span>
               </div>
-              <p className="text-sm md:text-base font-medium text-slate-400 uppercase tracking-wider">
+              <p className="small-caps text-muted-foreground text-center">
                 {stat.label}
               </p>
             </motion.div>

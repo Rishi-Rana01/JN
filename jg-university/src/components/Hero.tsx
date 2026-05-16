@@ -1,88 +1,87 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden bg-slate-950">
-      {/* Abstract Tech-Particle Background */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] mix-blend-screen" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-[120px] mix-blend-screen" />
-        
-        {/* Grid pattern overlay */}
-        <div 
-          className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-size-[14px_24px]"
-          style={{ maskImage: 'radial-gradient(ellipse 60% 50% at 50% 50%, #000 70%, transparent 100%)' }}
-        />
-      </div>
-
-      <div className="container relative z-10 mx-auto px-6 md:px-12 flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8"
-        >
-          <Sparkles className="w-4 h-4 text-blue-400" />
-          <span className="text-sm font-medium text-slate-300">Admissions open for 2026 Batch</span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-transparent bg-clip-text bg-linear-to-br from-white to-slate-400 mb-6 max-w-5xl"
-        >
-          Shape the Future of <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-violet-500">
-            Technology & Innovation
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-4 text-lg md:text-xl text-slate-400 max-w-2xl mb-10"
-        >
-          JG University is a premier institution dedicated to excellence in education, 
-          fostering leaders in Engineering, AI, and Commerce for tomorrow&apos;s challenges.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-        >
-          {/* Glassmorphism Apply Now Button */}
-          <button className="group relative px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-lg rounded-full text-white font-semibold transition-all flex items-center justify-center gap-2 overflow-hidden">
-            <div className="absolute inset-0 w-full h-full bg-linear-to-r from-blue-600/50 to-violet-600/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="relative z-10 flex items-center gap-2">
-              Apply Now
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </button>
+    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-background">
+      {/* Ambient Glow */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+      
+      <div className="container relative z-10 mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
           
-          <button className="px-8 py-4 rounded-full text-white font-semibold border border-slate-700 hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
-            Explore Programs
-          </button>
-        </motion.div>
-      </div>
+          <div className="flex flex-col items-start text-left pt-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="mb-8"
+            >
+              <span className="small-caps text-accent border-b border-accent pb-1">
+                Admissions open for 2026 Batch
+              </span>
+            </motion.div>
 
-      {/* Decorative floating elements */}
-      <motion.div 
-        animate={{ y: [0, -20, 0] }} 
-        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-        className="hidden lg:block absolute right-[10%] top-[30%] w-24 h-24 rounded-2xl bg-linear-to-br from-blue-500/20 to-transparent border border-blue-500/20 backdrop-blur-xl rotate-12"
-      />
-      <motion.div 
-        animate={{ y: [0, 30, 0] }} 
-        transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
-        className="hidden lg:block absolute left-[10%] bottom-[30%] w-32 h-32 rounded-full bg-linear-to-tr from-violet-500/20 to-transparent border border-violet-500/20 backdrop-blur-xl -rotate-12"
-      />
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              className="text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] font-serif text-foreground mb-6 max-w-4xl tracking-tight"
+            >
+              Shape the Future of Technology & Innovation
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              className="mt-4 text-lg text-muted-foreground max-w-xl mb-10 leading-[1.75]"
+            >
+              JG University is a premier institution dedicated to excellence in education, 
+              fostering leaders in Engineering, AI, and Commerce for tomorrow&apos;s challenges.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
+            >
+              <button className="min-h-[44px] px-8 py-3 bg-accent text-accent-foreground font-medium rounded-md shadow-sm hover:bg-accent-secondary hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 group">
+                Apply Now
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
+              
+              <button className="min-h-[44px] px-8 py-3 rounded-md text-foreground font-medium border border-border hover:border-accent hover:text-accent hover:bg-muted/50 transition-all duration-200 flex items-center justify-center">
+                Explore Programs
+              </button>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            className="relative h-[600px] w-full hidden lg:block"
+          >
+            <div className="absolute inset-0 border border-border rounded-lg translate-x-4 translate-y-4" />
+            <div className="relative h-full w-full overflow-hidden rounded-lg shadow-lg border border-border">
+              <Image 
+                src="https://jguni.in/images/Untitled-4.webp"
+                alt="JG University Campus Life"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
+          
+        </div>
+      </div>
     </section>
   );
 }

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -29,20 +30,22 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
+        "fixed top-0 inset-x-0 z-50 transition-all duration-300 ease-out",
         isScrolled
-          ? "bg-slate-950/80 backdrop-blur-md border-b border-white/10 py-4 shadow-lg shadow-black/50"
+          ? "bg-background/95 backdrop-blur-md border-b border-border py-4 shadow-sm"
           : "bg-transparent py-6"
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-linear-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow">
-            JG
-          </div>
-          <span className="text-xl font-bold tracking-tight text-white hidden sm:block">
-            University
-          </span>
+          <Image 
+            src="https://jguni.in/images/logo.png" 
+            alt="JG University Logo" 
+            width={160} 
+            height={40} 
+            className="h-10 w-auto object-contain"
+            style={{ width: "auto" }}
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -51,28 +54,25 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+              className="small-caps text-muted-foreground hover:text-accent transition-colors"
             >
               {link.name}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
-          <button className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+        <div className="hidden md:flex items-center gap-6">
+          <button className="small-caps text-foreground hover:text-accent transition-colors">
             Login
           </button>
-          <button className="relative inline-flex h-10 overflow-hidden rounded-full p-px focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-              Apply Now
-            </span>
+          <button className="min-h-[44px] px-6 py-2 rounded-md bg-accent text-accent-foreground font-medium text-sm hover:bg-accent-secondary hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-md transition-all duration-200">
+            Apply Now
           </button>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-foreground min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -83,26 +83,27 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-slate-900 border-b border-white/10 md:hidden flex flex-col px-6 py-4 shadow-xl"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 w-full bg-card border-b border-border md:hidden flex flex-col px-6 py-4 shadow-lg"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="py-3 text-base font-medium text-slate-300 hover:text-white border-b border-white/5 last:border-0"
+                className="py-4 small-caps text-muted-foreground hover:text-accent border-b border-border last:border-0"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="flex flex-col gap-3 mt-4">
-              <button className="py-2 text-center text-sm font-medium text-slate-300 hover:text-white border border-slate-700 rounded-lg">
+            <div className="flex flex-col gap-4 mt-6">
+              <button className="min-h-[44px] py-2 text-center small-caps text-foreground hover:text-accent border border-border rounded-md">
                 Login
               </button>
-              <button className="py-2 text-center text-sm font-medium text-white bg-blue-600 rounded-lg">
+              <button className="min-h-[44px] py-2 text-center text-sm font-medium text-accent-foreground bg-accent rounded-md">
                 Apply Now
               </button>
             </div>

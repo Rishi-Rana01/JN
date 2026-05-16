@@ -27,11 +27,12 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-32 bg-slate-950 relative">
+    <section className="py-32 bg-background relative">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="mb-16 md:text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-            Hear from our <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-violet-500">Alumni</span>
+        <div className="mb-20 md:text-center max-w-3xl mx-auto">
+          <span className="small-caps text-accent mb-4 block">Student Success</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground tracking-tight">
+            Hear from our Alumni
           </h2>
         </div>
 
@@ -42,21 +43,23 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.2, duration: 0.6 }}
-              className="relative p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors shadow-2xl shadow-black/50 group"
+              transition={{ delay: idx * 0.2, duration: 0.6, ease: "easeOut" }}
+              className="relative p-8 md:p-10 bg-card border border-border shadow-sm hover:shadow-md transition-shadow duration-300 group"
             >
-              <Quote className="absolute top-6 right-8 w-12 h-12 text-slate-800 group-hover:text-slate-700 transition-colors" />
+              <Quote className="absolute top-8 right-8 w-10 h-10 text-muted/50 group-hover:text-accent/20 transition-colors" />
               <div className="relative z-10 flex flex-col h-full">
-                <p className="text-slate-300 mb-8 italic grow">&quot;{t.content}&quot;</p>
-                <div className="flex items-center gap-4">
+                <p className="text-foreground text-lg leading-relaxed italic mb-10 grow font-serif">&quot;{t.content}&quot;</p>
+                <div className="flex items-center gap-4 border-t border-border pt-6">
                   <Image
                     src={t.image}
                     alt={t.name}
-                    className="w-12 h-12 rounded-full ring-2 ring-slate-800 object-cover"
+                    width={48}
+                    height={48}
+                    className="w-12 h-12 rounded-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                   />
                   <div>
-                    <h4 className="text-white font-semibold">{t.name}</h4>
-                    <p className="text-sm text-slate-400">{t.role}</p>
+                    <h4 className="text-foreground font-medium">{t.name}</h4>
+                    <p className="small-caps text-muted-foreground mt-1">{t.role}</p>
                   </div>
                 </div>
               </div>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const sourceSans = Source_Sans_3({ subsets: ["latin"], variable: "--font-source-sans" });
+const ibmPlex = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-ibm-plex" });
 
 export const metadata: Metadata = {
   title: "JG University | Empowering Future Innovators",
@@ -15,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${inter.variable} scroll-smooth`}>
-      <body className="bg-slate-950 text-slate-50 antialiased font-sans min-h-screen selection:bg-blue-500/30">
+    <html lang="en" className={`${playfair.variable} ${sourceSans.variable} ${ibmPlex.variable} scroll-smooth`}>
+      <body suppressHydrationWarning className="bg-background text-foreground antialiased font-sans min-h-screen">
         {children}
       </body>
     </html>
