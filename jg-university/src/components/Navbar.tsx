@@ -38,12 +38,12 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <Image 
-            src="https://jguni.in/images/logo.png" 
-            alt="JG University Logo" 
-            width={160} 
+          <Image
+            src="https://jguni.in/images/logo.png"
+            alt="JG University Logo"
+            width={160}
             height={40}
-            loading="eager" 
+            loading="eager"
             className="h-10 w-auto object-contain"
             style={{ width: "auto" }}
           />

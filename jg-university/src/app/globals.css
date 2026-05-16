@@ -2,16 +2,19 @@
 
 @theme inline {
   /* Colors */
-  --color-background: #FAFAF8; /* Ivory */
-  --color-foreground: #1A1A1A; /* Rich Black */
-  
+  --color-background: #FAFAF8;
+  /* Ivory */
+  --color-foreground: #1A1A1A;
+  /* Rich Black */
+
   --color-muted: #F5F3F0;
   --color-muted-foreground: #6B6B6B;
-  
-  --color-accent: #B8860B; /* Burnished Gold */
+
+  --color-accent: #B8860B;
+  /* Burnished Gold */
   --color-accent-secondary: #D4A84B;
   --color-accent-foreground: #FFFFFF;
-  
+
   --color-border: #E8E4DF;
   --color-card: #FFFFFF;
   --color-ring: #B8860B;
