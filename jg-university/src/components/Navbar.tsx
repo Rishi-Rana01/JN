@@ -42,7 +42,8 @@ export default function Navbar() {
             src="https://jguni.in/images/logo.png" 
             alt="JG University Logo" 
             width={160} 
-            height={40} 
+            height={40}
+            loading="eager" 
             className="h-10 w-auto object-contain"
             style={{ width: "auto" }}
           />
